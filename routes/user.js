@@ -1,21 +1,18 @@
 const { Router } = require("express")
+const { userGet, userPost, userDelete, userPatch, userPut } = require("../controllers/user_controller")
 
 const user_router = Router()
 
-user_router.get("/", function (req, res) {
-  res.json("Hello World GET")
-})
+user_router.get("/", userGet)
 
-user_router.post("/", function (req, res) {
-  res.json("Hello World POST")
-})
+user_router.post("/", userPost)
 
-user_router.put("/", function (req, res) {
-  res.json("Hello World PUT")
-})
+user_router.put("/", userPut)
 
-user_router.delete("/", function (req, res) {
-  res.json("Hello World DELETE")
-})
+user_router.delete("/", userDelete)
+
+user_router.put("/:id", userPut)
+
+user_router.patch("/", userPatch) 
 
 module.exports = user_router
